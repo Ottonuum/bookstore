@@ -1,16 +1,8 @@
 <?php
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-$pdo = new PDO($dsn, $user, $pass, $options);
+    require_once('connect.php');
 
-
-$stmt = pdo->query('SELECT * from books')
-
+$stmt = $pdo->query('SELECT * FROM books');
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +17,11 @@ $stmt = pdo->query('SELECT * from books')
     <?php
     while ($row = $stmt->fetch()) {
 ?>
-    <li><?=$row['title'];?></li>   
+    <li>
+        <a href="book.php?id=">
+            <?=$row['title'];?>
+        </a>
+    </li>   
 
 <?php
 }
