@@ -21,7 +21,7 @@ $stmt->execute(['id' => $id ]);
     <title>Document</title>
 </head>
 <body>
-    <h1><?= $book['title'] ?></h1>
+    <h1><?=$book['title']?></h1>
     <span style="font-size 18px;">Aaasta</span><span style="font size 32px">1988</span>
     <br><br>
     <span style></span>
@@ -31,7 +31,7 @@ $stmt->execute(['id' => $id ]);
     while ($row = $stmt->fetch()) {
 ?>
     <li>
-            <?=$row['first_name']?><?$row['last_name']?>
+            <?=$row['first_name']?><?=$row['last_name']?>
         </a>
     </li>   
 
@@ -39,6 +39,6 @@ $stmt->execute(['id' => $id ]);
 }
 ?>
 </ul>
-        <a href="edit.php?id=<?$book['id']?>">Muuda</a>
+        <a href="edit.php?id=<?=$id?>">Muuda</a>
 </body>
 </html>
